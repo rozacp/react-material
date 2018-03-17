@@ -10,8 +10,8 @@ export default class App extends Component {
 
     state = {
         uiElems: {
-            AcController: false,
-            HvacController: false,
+            AcController: true,
+            HvacController: true,
             Weather: true
         },
         hvac: 5
