@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import CssBaseline from 'material-ui/CssBaseline';
-import 'typeface-roboto';
 import AcController from './components/AcController';
 import HvacController from './components/HvacController';
 import Weather from './components/Weather';
+import 'typeface-roboto';
 import './App.css';
 
 export default class App extends Component {
