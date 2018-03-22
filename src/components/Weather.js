@@ -3,7 +3,8 @@ import Typography from 'material-ui/Typography';
 import './Weather.css';
 
 const apiKey = 'ee6e9b7ac36186b0dcb5451d30e2b8e4';
-const town = 'ljubljana';
+const town = 'Medno';
+const country = 'SI'; //SI
 
 export default class Weather extends Component {
 
@@ -21,7 +22,7 @@ export default class Weather extends Component {
     }
 
     getWeather = () => {
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${town},SI&appid=${apiKey}&units=metric&lang=sl`)
+        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${town},${country}&appid=${apiKey}&units=metric`)
             .then(res => res.json())
             .then(data => {
                 this.setState({
@@ -30,7 +31,6 @@ export default class Weather extends Component {
                     pressure: data.main.pressure,
                     wind: data.wind.speed,
                     humidity: data.main.humidity,
-                    description: data.weather['0'].description,
                     icon: data.weather['0'].icon,
                     loaded: true
                 });
@@ -63,10 +63,8 @@ export default class Weather extends Component {
                             <Typography variant="body1" paragraph>
                                 <strong>Vlažnost:</strong> {this.state.humidity} &#37;
                             </Typography>
-                            <Typography variant="body1" paragraph>
-                                <strong>Opis:</strong> {this.state.description}
-                            </Typography>
-                            <img src={`http://openweathermap.org/img/w/${this.state.icon}.png`} alt="weather icon" />
+                            {/* <img src={`http://openweathermap.org/img/w/${this.state.icon}.png`} alt="weather icon" /> */}
+                            <img src={`http://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/${this.state.icon}.png`} alt="weather icon" />
                         </Fragment>
                         :
                         <Typography variant="body1" paragraph>
