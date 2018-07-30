@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
-import CssBaseline from 'material-ui/CssBaseline';
+import Grid from 'material-ui/Grid';
+import Header from './components/Header';
+import Paper from 'material-ui/Paper';
 import AcController from './components/AcController';
 import HvacController from './components/HvacController';
 import Weather from './components/Weather';
-import 'typeface-roboto';
-import './App.css';
 
 export default class App extends Component {
 
@@ -26,18 +26,49 @@ export default class App extends Component {
 
         return (
             <Fragment>
-                <CssBaseline />
-                <div className="main">
-                    {uiElems.AcController && <AcController />}
-
-                    {uiElems.HvacController && <HvacController
-                        updateHvac={this.updateHvac}
-                        hvac={this.state.hvac}
-                    />}
-                    
-                    {uiElems.Weather && <Weather />}
-                </div>
+                <Header />
+                <Grid
+                    container
+                    direction="row"
+                    alignItems="stretch"
+                    justify="center"
+                    spacing={0}
+                >
+                    <Grid item sm>
+                        <Grid
+                            container
+                            direction="row"
+                            alignItems="stretch"
+                            justify="center"
+                            spacing={0}
+                        >
+                            <Grid item sm><Paper>Ac</Paper></Grid>
+                            <Grid item sm><Paper>Ac</Paper></Grid>
+                            <Grid item sm><Paper>Ac</Paper></Grid>
+                            <Grid item sm><Paper>Ac</Paper></Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item sm>
+                        <Paper>
+                            <Weather />
+                        </Paper>
+                    </Grid>
+                </Grid>
             </Fragment>
         );
     }
 }
+
+
+/*
+
+{uiElems.AcController && <AcController />}
+
+{uiElems.HvacController && <HvacController
+                            updateHvac={this.updateHvac}
+                            hvac={this.state.hvac}
+                        />}
+
+
+
+*/
