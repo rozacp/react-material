@@ -2,9 +2,9 @@ import React, { Component, Fragment } from 'react';
 import Typography from 'material-ui/Typography';
 import './Weather.css';
 
-const apiKey = 'ee6e9b7ac36186b0dcb5451d30e2b8e4';
-const town = 'Mengeš';
-const country = 'SI'; //SI
+const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
+const town = process.env.REACT_APP_WEATHER_TOWN;
+const country = process.env.REACT_APP_WEATHER_COUNTRY;
 
 export default class Weather extends Component {
 
@@ -34,8 +34,9 @@ export default class Weather extends Component {
                     icon: data.weather['0'].icon,
                     loaded: true
                 });
-                console.log(data);
-            });
+                // console.log(data);
+            })
+            .catch(e => console.log(e));
     }
 
     render() {

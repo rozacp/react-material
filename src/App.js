@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import Grid from 'material-ui/Grid';
 import Header from './components/Header';
 import Paper from 'material-ui/Paper';
-import AcController from './components/AcController';
-import HvacController from './components/HvacController';
+// import AcController from './components/AcController';
+// import HvacController from './components/HvacController';
 import Weather from './components/Weather';
 
 export default class App extends Component {
@@ -22,7 +22,7 @@ export default class App extends Component {
     }
 
     render() {
-        const { uiElems } = this.state;
+        // const { uiElems } = this.state;
 
         return (
             <Fragment>
